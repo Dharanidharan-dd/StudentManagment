@@ -19,13 +19,13 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore StudentSport/StudentSport.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build StudentSport/StudentSport.csproj --configuration Release --no-restore
 
     - name: Publish
-      run: dotnet publish -c Release -o publish
+      run: dotnet publish StudentSport/StudentSport.csproj -c Release -o publish
 
     - name: Deploy to Heroku
       env:
